@@ -1,4 +1,4 @@
-# 🤖 AI Email Generator with GPT-3.5 Turbo
+# 🤖 AI Email Generator
 
 A powerful, AI-driven email generator that creates professional emails instantly using OpenAI's GPT-3.5 Turbo model. This application provides a sleek web interface for generating customized emails and includes Gmail integration capabilities.
 
