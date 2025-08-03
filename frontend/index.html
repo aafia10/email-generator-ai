@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Email Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🤖 AI Email Generator</h1>
+            <p>Generate professional emails instantly</p>
+        </div>
+        
+        <div class="main-content">
+            <div class="form-section">
+                <form id="emailForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="senderName">Your Name *</label>
+                            <input type="text" id="senderName" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="recipientName">Recipient Name *</label>
+                            <input type="text" id="recipientName" placeholder="Jane Smith" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="senderEmail">Your Email *</label>
+                            <input type="email" id="senderEmail" placeholder="john@company.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="recipientEmail">Recipient Email *</label>
+                            <input type="email" id="recipientEmail" placeholder="jane@company.com" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Subject *</label>
+                        <input type="text" id="subject" placeholder="Meeting Request" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="emailType">Email Type *</label>
+                        <select id="emailType" required>
+                            <option value="">Select email type</option>
+                            <option value="meeting request">Meeting Request</option>
+                            <option value="follow-up">Follow-up</option>
+                            <option value="introduction">Introduction</option>
+                            <option value="thank you">Thank You</option>
+                            <option value="business proposal">Business Proposal</option>
+                            <option value="apology">Apology</option>
+                            <option value="invitation">Invitation</option>
+                            <option value="inquiry">Inquiry</option>
+                            <option value="announcement">Announcement</option>
+                            <option value="resignation">Resignation</option>
+                            <option value="complaint">Complaint</option>
+                            <option value="feedback request">Feedback Request</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="tone">Tone</label>
+                        <select id="tone">
+                            <option value="professional">Professional</option>
+                            <option value="friendly">Friendly</option>
+                            <option value="formal">Formal</option>
+                            <option value="casual">Casual</option>
+                            <option value="urgent">Urgent</option>
+                            <option value="apologetic">Apologetic</option>
+                            <option value="enthusiastic">Enthusiastic</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="context">Context/Details</label>
+                        <textarea id="context" placeholder="Provide additional context or specific details for your email..." rows="4"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <button type="button" class="btn btn-primary" onclick="generateEmail()">
+                            <span class="btn-text">✨ Generate Email</span>
+                            <span class="btn-loading" style="display: none;">
+                                <div class="spinner-small"></div> Generating...
+                            </span>
+                        </button>
+                        <button type="button" class="btn btn-success" id="sendBtn" onclick="sendEmail()" disabled>
+                            📧 Send Email
+                        </button>
+                    </div>
+                    
+                    <div id="statusMessage" class="status-message"></div>
+                </form>
+            </div>
+            
+            <div class="preview-section">
+                <h3 style="margin-bottom: 20px; color: #495057;">📧 Email Preview</h3>
+                <div class="email-preview" id="emailPreview">
+                    <div class="placeholder" id="placeholder">
+                        <h4>🎯 Your AI-generated email will appear here</h4>
+                        <p>Fill out the form and click "Generate Email" to see the magic happen!</p>
+                        <div class="features">
+                            <div class="feature">✨ AI-powered content generation</div>
+                            <div class="feature">🎨 Professional formatting</div>
+                            <div class="feature">⚡ Instant preview</div>
+                        </div>
+                    </div>
+                    
+                    <div class="loading" id="loading">
+                        <div class="spinner"></div>
+                        <p>AI is crafting your perfect email...</p>
+                    </div>
+                    
+                    <div class="email-content" id="emailContent" style="display: none;">
+                        <div class="email-header">
+                            <div class="email-field">
+                                <strong>From:</strong> <span id="previewFrom"></span>
+                            </div>
+                            <div class="email-field">
+                                <strong>To:</strong> <span id="previewTo"></span>
+                            </div>
+                            <div class="email-field">
+                                <strong>Subject:</strong> <span id="previewSubject"></span>
+                            </div>
+                        </div>
+                        <div class="email-body" id="previewBody"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
